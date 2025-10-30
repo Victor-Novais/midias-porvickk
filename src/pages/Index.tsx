@@ -23,16 +23,15 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-[#000000] text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#000000] opacity-90" />
-        
-        {/* Video Background Container */}
-        <div className="absolute inset-0 flex items-center justify-center overflow-hidden opacity-30">
-          <iframe
-            src="https://drive.google.com/file/d/1yX1i9BSzvDGhDE0ST7izr5CcF3ZEJRjM/preview"
-            className="w-full h-full object-cover scale-150"
-            allow="autoplay"
-            title="Background Video"
+        {/* Image Background */}
+        <div className="absolute inset-0">
+          <img
+            src={vickkPhoto}
+            alt="Mídias por Vick - Storytelling Visual"
+            className="w-full h-full object-cover"
           />
+          {/* Gradient Overlay - Black to Orange */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#000000] via-[#000000]/80 to-[hsl(var(--primary))]/40" />
         </div>
 
         {/* Logo */}
@@ -48,7 +47,7 @@ const Index = () => {
             Histórias contadas através de <span className="text-[hsl(var(--primary))]">lentes</span> e <span className="text-[hsl(var(--primary))]">emoções</span>
           </h2>
           <p className="text-xl md:text-2xl font-light mb-12 text-gray-300 max-w-2xl mx-auto">
-            Produção audiovisual, eventos e storytelling com propósito.
+            Produção audiovisual com propósito. Storytelling que transforma emoções em imagens.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
@@ -57,17 +56,17 @@ const Index = () => {
               className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary-hover))] text-white font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.5)]"
             >
               <Video className="mr-2" />
-              Assistir Portfólio
+              Ver Portfólio
             </Button>
             <Button
               asChild
               size="lg"
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-black font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
+              className="border-2 border-white text-white hover:bg-white hover:text-[hsl(var(--primary))] font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
             >
               <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2" />
-                Falar pelo WhatsApp
+                Falar com Vickk
               </a>
             </Button>
           </div>
@@ -119,7 +118,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Portfolio Section */}
+      {/* Portfolio Section - Vertical Videos (9:16) */}
       <section id="portfolio" className="py-24 px-6 bg-[#000000] text-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
@@ -131,35 +130,35 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Main Video */}
-          <div className="mb-12 animate-scale-in">
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(255,102,0,0.3)] hover:shadow-[0_0_80px_rgba(255,102,0,0.5)] transition-all duration-500">
+          {/* Main Vertical Video - Showreel 2024 */}
+          <div className="mb-16 animate-scale-in flex justify-center">
+            <div className="relative w-full max-w-[400px] aspect-[9/16] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(255,102,0,0.3)] hover:shadow-[0_0_80px_rgba(255,102,0,0.5)] transition-all duration-500">
               <iframe
                 src="https://drive.google.com/file/d/1yX1i9BSzvDGhDE0ST7izr5CcF3ZEJRjM/preview"
                 className="w-full h-full"
                 allow="autoplay"
-                title="Portfólio Principal"
+                title="Showreel 2024"
               />
             </div>
-            <p className="text-center mt-6 text-gray-400 text-lg">
-              Showreel 2024 — Uma seleção dos melhores momentos capturados
-            </p>
           </div>
+          <p className="text-center mb-16 text-gray-400 text-lg animate-fade-in">
+            Showreel 2024 — Uma seleção dos melhores momentos capturados
+          </p>
 
-          {/* Video Grid */}
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* Vertical Video Grid - Stories/Reels Format */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {[1, 2, 3].map((item) => (
               <Card
                 key={item}
-                className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)]"
+                className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
               >
-                <div className="aspect-video bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden">
+                <div className="aspect-[9/16] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden rounded-t-2xl">
                   <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
                   <Video className="text-[hsl(var(--primary))] opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" size={48} />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-montserrat font-semibold text-white mb-2">Projeto {item}</h3>
-                  <p className="text-gray-400 text-sm">Descrição do vídeo aqui</p>
+                  <h3 className="font-montserrat font-semibold text-white mb-2">Story {item}</h3>
+                  <p className="text-gray-400 text-sm">Descrição do vídeo vertical aqui</p>
                 </div>
               </Card>
             ))}
