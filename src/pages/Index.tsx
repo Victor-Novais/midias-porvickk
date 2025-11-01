@@ -16,8 +16,8 @@ const Index = () => {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const whatsappNumber = "5511999999999"; // Substituir pelo número real
-  const whatsappMessage = encodeURIComponent("Olá! Gostaria de conhecer melhor o trabalho da Mídias por Vick.");
+  const whatsappNumber = "5524998311823"; // Substituir pelo número real
+  const whatsappMessage = encodeURIComponent("Oi! 👋 Gostaria de solicitar um orçamento e saber mais sobre o trabalho da Mídias por Vickk.");
 
   return (
     <div className="min-h-screen bg-background">
