@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors } from "lucide-react";
 import vickkPhoto from "@/assets/vickk-photo.jpg";
-
+import tumb from '../assets/showreel-thumb.png'
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const [play, setPlay] = useState(false);
   useEffect(() => {
     setIsVisible(true);
   }, []);
@@ -58,7 +58,7 @@ const Index = () => {
               <Video className="mr-2" />
               Ver Portfólio
             </Button>
-           <Button
+            <Button
               asChild
               size="lg"
               variant="ghost" // ou remove o variant para usar apenas os estilos customizados
@@ -138,12 +138,32 @@ const Index = () => {
           {/* Main Vertical Video - Showreel 2024 */}
           <div className="mb-16 animate-scale-in flex justify-center">
             <div className="relative w-full max-w-[400px] aspect-[9/16] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(255,102,0,0.3)] hover:shadow-[0_0_80px_rgba(255,102,0,0.5)] transition-all duration-500">
-              <iframe
-                src="https://drive.google.com/file/d/1yX1i9BSzvDGhDE0ST7izr5CcF3ZEJRjM/preview"
-                className="w-full h-full"
-                allow="autoplay"
-                title="Showreel 2024"
-              />
+              {!play && (
+                <>
+                  <img
+                    src={tumb}
+                    className="w-full h-full object-cover cursor-pointer"
+                    onClick={() => setPlay(true)}
+                    alt="Showreel 2024 Poster"
+                  />
+                  <button
+                    onClick={() => setPlay(true)}
+                    className="absolute inset-0 flex items-center justify-center text-white text-5xl"
+                  >
+                    ▶
+                  </button>
+                </>
+              )}
+
+              {play && (
+                <iframe
+                  src="https://drive.google.com/file/d/1yX1i9BSzvDGhDE0ST7izr5CcF3ZEJRjM/preview"
+                  className="w-full h-full"
+                  allow="autoplay"
+                  title="Showreel 2024"
+                  allowFullScreen
+                />
+              )}
             </div>
           </div>
           <p className="text-center mb-16 text-gray-400 text-lg animate-fade-in">
@@ -284,7 +304,7 @@ const Index = () => {
                 WhatsApp
               </a>
             </Button>
-          <Button
+            <Button
               asChild
               size="lg"
               variant="ghost" // ou remova o variant totalmente
