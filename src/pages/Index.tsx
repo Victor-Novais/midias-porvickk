@@ -58,14 +58,19 @@ const Index = () => {
               <Video className="mr-2" />
               Ver Portfólio
             </Button>
-            <Button
+           <Button
               asChild
               size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[hsl(var(--primary))] font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
+              variant="ghost" // ou remove o variant para usar apenas os estilos customizados
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[hsl(var(--primary))] font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
             >
-              <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2" />
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <MessageCircle className="mr-2 h-5 w-5" />
                 Falar com Vickk
               </a>
             </Button>
@@ -279,14 +284,19 @@ const Index = () => {
                 WhatsApp
               </a>
             </Button>
-            <Button
+          <Button
               asChild
               size="lg"
-              variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-[hsl(var(--primary))] font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
+              variant="ghost" // ou remova o variant totalmente
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-[hsl(var(--primary))] font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105"
             >
-              <a href="https://instagram.com/midias.porvickk" target="_blank" rel="noopener noreferrer">
-                <Instagram className="mr-2" />
+              <a
+                href="https://instagram.com/midias.porvickk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center"
+              >
+                <Instagram className="mr-2 h-5 w-5" />
                 @midias.porvickk
               </a>
             </Button>
