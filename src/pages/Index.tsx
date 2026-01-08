@@ -6,6 +6,7 @@ import vickkPhoto from "@/assets/vickk-photo.jpg";
 import video01 from '/Trabalho-Vick.mp4'
 import videoFinal from '/Video Final.mp4'
 import video3 from '/video-3.mp4'
+import img6653 from '/IMG_6653.jpg'
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -178,13 +179,17 @@ const Index = () => {
             <Card
               className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
             >
-              <div className="aspect-[9/16] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden rounded-t-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                <Video className="text-[hsl(var(--primary))] opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" size={48} />
+              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10" />
+                <img
+                  className="w-full h-full object-cover"
+                  src={img6653}
+                  alt="Vídeo 2"
+                />
               </div>
               <div className="p-4">
-                <h3 className="font-montserrat font-semibold text-white mb-2">Vídeo 2</h3>
-                <p className="text-gray-400 text-sm">Descrição do Vídeo 2</p>
+                <h3 className="font-montserrat font-semibold text-white mb-2">O Amor que Transborda</h3>
+                <p className="text-gray-400 text-sm">Documentando o início de uma nova jornada. A pureza da espera traduzida em imagens que guardam para sempre a emoção de gerar uma nova vida.</p>
               </div>
             </Card>
             <Card
