@@ -92,6 +92,24 @@ export default {
           "0%": { transform: "translateX(100%)", opacity: "0" },
           "100%": { transform: "translateX(0)", opacity: "1" },
         },
+        "slide-in-up": {
+          "0%": { transform: "translateY(20px)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "border-glow": {
+          "0%, 100%": { 
+            borderColor: "rgba(255, 102, 0, 0.3)",
+            boxShadow: "0 0 20px rgba(255, 102, 0, 0.2)"
+          },
+          "50%": { 
+            borderColor: "rgba(255, 165, 0, 0.6)",
+            boxShadow: "0 0 30px rgba(255, 165, 0, 0.4)"
+          },
+        },
+        "bounce-subtle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-5px)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -101,6 +119,9 @@ export default {
         "scale-in": "scale-in 0.5s ease-out",
         "glow": "glow 3s ease-in-out infinite",
         "slide-in-right": "slide-in-right 0.6s ease-out",
+        "slide-in-up": "slide-in-up 0.5s ease-out",
+        "border-glow": "border-glow 3s ease-in-out infinite",
+        "bounce-subtle": "bounce-subtle 2s ease-in-out infinite",
       },
       fontFamily: {
         'montserrat': ['Montserrat', 'sans-serif'],

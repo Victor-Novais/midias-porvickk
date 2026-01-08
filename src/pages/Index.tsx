@@ -1,17 +1,36 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors } from "lucide-react";
+import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors, Zap, X } from "lucide-react";
 import vickkPhoto from "@/assets/vickk-photo.jpg";
 import video01 from '/Trabalho-Vick.mp4'
 import videoFinal from '/Video Final.mp4'
 import video3 from '/video-3.mp4'
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showFloatingBadge, setShowFloatingBadge] = useState(false);
+  const [badgeClosed, setBadgeClosed] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (badgeClosed) return;
+      
+      const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      
+      if (scrollPercentage >= 50) {
+        setShowFloatingBadge(true);
+      } else {
+        setShowFloatingBadge(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [badgeClosed]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -355,6 +374,47 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Floating Badge - Developer Promotion */}
+      {showFloatingBadge && !badgeClosed && (
+        <div className="fixed bottom-24 left-6 z-[60] animate-slide-in-up">
+          <a
+            href="https://www.instagram.com/novais_.dev/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative flex items-center gap-3 p-4 pr-10 rounded-2xl bg-black/80 backdrop-blur-md border border-orange-500/30 shadow-[0_0_20px_rgba(255,102,0,0.2)] hover:shadow-[0_0_30px_rgba(255,102,0,0.4)] transition-all duration-300 hover:scale-105 animate-border-glow max-w-[280px]"
+          >
+            {/* Animated Border Gradient */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10 blur-sm" />
+            
+            {/* Icon */}
+            <div className="flex-shrink-0">
+              <Zap className="text-[hsl(var(--primary))] group-hover:scale-110 transition-transform duration-300" size={24} />
+            </div>
+            
+            {/* Text */}
+            <div className="flex-1">
+              <p className="text-white text-sm font-montserrat font-semibold leading-tight">
+                Gostou deste site? <span className="text-[hsl(var(--primary))]">Quero um igual</span>
+              </p>
+            </div>
+
+            {/* Close Button */}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setBadgeClosed(true);
+                setShowFloatingBadge(false);
+              }}
+              className="absolute top-2 right-2 p-1 rounded-full hover:bg-white/10 transition-colors duration-200 opacity-60 hover:opacity-100"
+              aria-label="Fechar alerta"
+            >
+              <X size={16} className="text-white" />
+            </button>
+          </a>
+        </div>
+      )}
 
       {/* WhatsApp Floating Button */}
       <a
