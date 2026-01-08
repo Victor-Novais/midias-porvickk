@@ -1,18 +1,31 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors } from "lucide-react";
+import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors, Rocket } from "lucide-react";
 import vickkPhoto from "@/assets/vickk-photo.jpg";
 import video01 from '/Trabalho-Vick.mp4'
-import videoFinal from '/Video Final.mp4'
-import video3 from '/video-3.mp4'
-import img6653 from '/IMG_6653.jpg'
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showDevAlert, setShowDevAlert] = useState(false);
+  const [hideDevAlert, setHideDevAlert] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { scrollHeight, clientHeight, scrollTop } = document.documentElement;
+      const scrolled = (scrollTop + window.innerHeight) / scrollHeight;
+
+      if (!hideDevAlert && scrolled >= 0.5) {
+        setShowDevAlert(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [hideDevAlert]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -157,60 +170,21 @@ const Index = () => {
 
           {/* Vertical Video Grid - Stories/Reels Format */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-            <Card
-              className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
-            >
-              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10" />
-                <video
-                  className="w-full h-full object-cover"
-                  src={videoFinal}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="font-montserrat font-semibold text-white mb-2">O Início de um "Para Sempre"</h3>
-                <p className="text-gray-400 text-sm">Um registro sensível sobre amor, promessas e a celebração de uma nova união. Capturando a magia dos pequenos momentos que tornam o grande dia único.</p>
-              </div>
-            </Card>
-            <Card
-              className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
-            >
-              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10" />
-                <img
-                  className="w-full h-full object-cover"
-                  src={img6653}
-                  alt="Vídeo 2"
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="font-montserrat font-semibold text-white mb-2">O Amor que Transborda</h3>
-                <p className="text-gray-400 text-sm">Documentando o início de uma nova jornada. A pureza da espera traduzida em imagens que guardam para sempre a emoção de gerar uma nova vida.</p>
-              </div>
-            </Card>
-            <Card
-              className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
-            >
-              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10" />
-                <video
-                  className="w-full h-full object-cover"
-                  src={video3}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
-              </div>
-              <div className="p-4">
-                <h3 className="font-montserrat font-semibold text-white mb-2">Celebrando a Vida e a Família</h3>
-                <p className="text-gray-400 text-sm">Mais que uma festa, uma celebração de amor. Capturamos os sorrisos, os abraços e a magia de ver quem amamos crescer e ser feliz.</p>
-              </div>
-            </Card>
+            {[1, 2, 3].map((item) => (
+              <Card
+                key={item}
+                className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
+              >
+                <div className="aspect-[9/16] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden rounded-t-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                  <Video className="text-[hsl(var(--primary))] opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" size={48} />
+                </div>
+                <div className="p-4">
+                  <h3 className="font-montserrat font-semibold text-white mb-2">Story {item}</h3>
+                  <p className="text-gray-400 text-sm">Descrição do vídeo vertical aqui</p>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -357,12 +331,48 @@ const Index = () => {
         </div>
       </footer>
 
+      {/* Floating Developer Alert */}
+      {showDevAlert && !hideDevAlert && (
+        <div className="fixed bottom-6 left-6 z-50">
+          <div className="relative flex items-center gap-3 p-4 rounded-2xl bg-black/80 backdrop-blur-md border border-orange-500/30 shadow-[0_0_20px_rgba(255,102,0,0.2)] hover:shadow-[0_0_28px_rgba(255,102,0,0.4)] transition-all duration-300 hover:scale-105 animate-slide-up">
+            {/* Close button */}
+            <button
+              type="button"
+              onClick={() => setHideDevAlert(true)}
+              className="absolute -top-1 -right-1 h-5 w-5 rounded-full bg-black/70 text-gray-400 hover:text-white hover:bg-black flex items-center justify-center text-xs"
+              aria-label="Fechar alerta de desenvolvedor"
+            >
+              ×
+            </button>
+
+            <a
+              href="https://www.instagram.com/novais_.dev/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3"
+            >
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-orange-500/20 border border-orange-500/60">
+                <Rocket className="w-4 h-4 text-orange-400" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs text-gray-300 font-montserrat">
+                  Gostou deste site?
+                </span>
+                <span className="text-sm font-montserrat font-semibold text-white">
+                  Quero um igual
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      )}
+
       {/* WhatsApp Floating Button */}
       <a
         href={`https://wa.me/${whatsappNumber}?text=${whatsappMessage}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-[hsl(var(--primary))] text-white p-4 rounded-full shadow-[0_0_30px_rgba(255,102,0,0.5)] hover:shadow-[0_0_50px_rgba(255,102,0,0.7)] hover:scale-110 transition-all duration-300 z-50 animate-glow"
+        className="fixed bottom-6 right-6 bg-[hsl(var(--primary))] text-white p-4 rounded-full shadow-[0_0_30px_rgba(255,102,0,0.5)] hover:shadow-[0_0_50px_rgba(255,102,0,0.7)] hover:scale-110 transition-all duration-300 z-40 animate-glow"
         aria-label="Contato via WhatsApp"
       >
         <MessageCircle size={28} />
