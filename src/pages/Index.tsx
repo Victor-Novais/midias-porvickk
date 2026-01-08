@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors } from "lucide-react";
 import vickkPhoto from "@/assets/vickk-photo.jpg";
 import video01 from '/Trabalho-Vick.mp4'
+import videoFinal from '/Video Final.mp4'
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -154,21 +155,49 @@ const Index = () => {
 
           {/* Vertical Video Grid - Stories/Reels Format */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-            {[1, 2, 3].map((item) => (
-              <Card
-                key={item}
-                className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
-              >
-                <div className="aspect-[9/16] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden rounded-t-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
-                  <Video className="text-[hsl(var(--primary))] opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" size={48} />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-montserrat font-semibold text-white mb-2">Story {item}</h3>
-                  <p className="text-gray-400 text-sm">Descrição do vídeo vertical aqui</p>
-                </div>
-              </Card>
-            ))}
+            <Card
+              className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
+            >
+              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300 z-10" />
+                <video
+                  className="w-full h-full object-cover"
+                  src={videoFinal}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-montserrat font-semibold text-white mb-2">O Início de um "Para Sempre"</h3>
+                <p className="text-gray-400 text-sm">Um registro sensível sobre amor, promessas e a celebração de uma nova união. Capturando a magia dos pequenos momentos que tornam o grande dia único.</p>
+              </div>
+            </Card>
+            <Card
+              className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
+            >
+              <div className="aspect-[9/16] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                <Video className="text-[hsl(var(--primary))] opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" size={48} />
+              </div>
+              <div className="p-4">
+                <h3 className="font-montserrat font-semibold text-white mb-2">Vídeo 2</h3>
+                <p className="text-gray-400 text-sm">Descrição do Vídeo 2</p>
+              </div>
+            </Card>
+            <Card
+              className="bg-[#0a0a0a] border-[#1a1a1a] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.3)] w-full max-w-[320px]"
+            >
+              <div className="aspect-[9/16] bg-[#1a1a1a] flex items-center justify-center relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))] to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
+                <Video className="text-[hsl(var(--primary))] opacity-50 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110" size={48} />
+              </div>
+              <div className="p-4">
+                <h3 className="font-montserrat font-semibold text-white mb-2">Vídeo 3</h3>
+                <p className="text-gray-400 text-sm">Descrição do Vídeo 3</p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
