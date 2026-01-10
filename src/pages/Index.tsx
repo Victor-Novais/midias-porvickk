@@ -7,6 +7,7 @@ import video01 from '/Trabalho-Vick.mp4'
 import videoFinal from '/Video Final.mp4'
 import video3 from '/video-3.mp4'
 import analiseNichoFitness from '/Análise-de-Nicho-Fitness.mov'
+import conteudoEstrategico from '/Conteúdo-Estratégico.mov'
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showFloatingBadge, setShowFloatingBadge] = useState(false);
@@ -265,13 +266,10 @@ const Index = () => {
               
               <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
                 <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                <video
+                <img
+                  src="/IMG_1225_jpg.jpg"
+                  alt="Análise de Nicho: Fitness"
                   className="w-full h-full object-cover"
-                  src={analiseNichoFitness}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                 />
                 {/* Strategy Overlay Icon */}
                 <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-sm p-2 rounded-full">
@@ -301,7 +299,7 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                 <video
                   className="w-full h-full object-cover"
-                  src={videoFinal}
+                  src={analiseNichoFitness}
                   autoPlay
                   loop
                   muted
@@ -335,7 +333,7 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                 <video
                   className="w-full h-full object-cover"
-                  src={video3}
+                  src={conteudoEstrategico}
                   autoPlay
                   loop
                   muted
