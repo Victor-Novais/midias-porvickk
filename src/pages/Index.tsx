@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors, Zap, X } from "lucide-react";
+import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors, Zap, X, TrendingUp, BarChart3, Target } from "lucide-react";
 import vickkPhoto from "@/assets/vickk-photo.jpg";
 import video01 from '/Trabalho-Vick.mp4'
 import videoFinal from '/Video Final.mp4'
 import video3 from '/video-3.mp4'
+import analiseNichoFitness from '/Análise-de-Nicho-Fitness.mov'
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showFloatingBadge, setShowFloatingBadge] = useState(false);
@@ -229,6 +230,146 @@ const Index = () => {
                 <p className="text-gray-400 text-sm">Mais que uma festa, uma celebração de amor. Capturamos os sorrisos, os abraços e a magia de ver quem amamos crescer e ser feliz.</p>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Media Strategy Section */}
+      <section id="social-strategy" className="py-24 px-6 bg-gradient-to-b from-[#0a0a0a] via-[#111111] to-[#0a0a0a] text-white relative overflow-hidden">
+        {/* Decorative Border */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--primary))]/50 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[hsl(var(--primary))]/50 to-transparent" />
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-flex items-center gap-2 mb-4">
+            
+              <h2 className="text-4xl md:text-6xl font-montserrat font-bold mb-0">
+                Social Media & <span className="text-[hsl(var(--primary))]">Growth Strategy</span>
+              </h2>
+            </div>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto mt-4">
+              Produção de conteúdo estratégico focado em análise de nicho, retenção e crescimento orgânico. Transformando visualizações em seguidores.
+            </p>
+          </div>
+
+          {/* Strategy Videos Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <Card
+              className="bg-[#0f0f0f] border border-[hsl(var(--primary))]/20 overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:border-[hsl(var(--primary))]/50 hover:shadow-[0_0_40px_rgba(255,102,0,0.2)] w-full max-w-[300px] relative"
+            >
+              {/* Premium Badge */}
+              <div className="absolute top-3 right-3 z-20 bg-[hsl(var(--primary))]/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                <span className="text-xs font-montserrat font-bold text-white">ESTRATÉGIA</span>
+              </div>
+              
+              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                <video
+                  className="w-full h-full object-cover"
+                  src={analiseNichoFitness}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+                {/* Strategy Overlay Icon */}
+                <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-sm p-2 rounded-full">
+                  <Target className="text-[hsl(var(--primary))]" size={20} />
+                </div>
+              </div>
+              <div className="p-5 border-t border-[hsl(var(--primary))]/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <BarChart3 className="text-[hsl(var(--primary))]" size={18} />
+                  <h3 className="font-montserrat font-semibold text-white">Análise de Nicho: Fitness</h3>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Vídeos focados em autoridade e conversão para profissionais da saúde.
+                </p>
+              </div>
+            </Card>
+
+            <Card
+              className="bg-[#0f0f0f] border border-[hsl(var(--primary))]/20 overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:border-[hsl(var(--primary))]/50 hover:shadow-[0_0_40px_rgba(255,102,0,0.2)] w-full max-w-[300px] relative"
+            >
+              {/* Premium Badge */}
+              <div className="absolute top-3 right-3 z-20 bg-[hsl(var(--primary))]/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                <span className="text-xs font-montserrat font-bold text-white">ENGAGEMENT</span>
+              </div>
+              
+              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                <video
+                  className="w-full h-full object-cover"
+                  src={videoFinal}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+                {/* Strategy Overlay Icon */}
+                <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-sm p-2 rounded-full">
+                  <TrendingUp className="text-[hsl(var(--primary))]" size={20} />
+                </div>
+              </div>
+              <div className="p-5 border-t border-[hsl(var(--primary))]/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="text-[hsl(var(--primary))]" size={18} />
+                  <h3 className="font-montserrat font-semibold text-white">Retenção & Engajamento</h3>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Edição dinâmica pensada para os primeiros segundos do Reels.
+                </p>
+              </div>
+            </Card>
+
+            <Card
+              className="bg-[#0f0f0f] border border-[hsl(var(--primary))]/20 overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-105 hover:border-[hsl(var(--primary))]/50 hover:shadow-[0_0_40px_rgba(255,102,0,0.2)] w-full max-w-[300px] relative"
+            >
+              {/* Premium Badge */}
+              <div className="absolute top-3 right-3 z-20 bg-[hsl(var(--primary))]/90 backdrop-blur-sm px-2 py-1 rounded-full">
+                <span className="text-xs font-montserrat font-bold text-white">CRESCIMENTO</span>
+              </div>
+              
+              <div className="aspect-[9/16] bg-[#1a1a1a] relative overflow-hidden rounded-t-2xl">
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                <video
+                  className="w-full h-full object-cover"
+                  src={video3}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
+                {/* Strategy Overlay Icon */}
+                <div className="absolute top-4 left-4 z-20 bg-black/60 backdrop-blur-sm p-2 rounded-full">
+                  <BarChart3 className="text-[hsl(var(--primary))]" size={20} />
+                </div>
+              </div>
+              <div className="p-5 border-t border-[hsl(var(--primary))]/10">
+                <div className="flex items-center gap-2 mb-2">
+                  <Video className="text-[hsl(var(--primary))]" size={18} />
+                  <h3 className="font-montserrat font-semibold text-white">Conteúdo Estratégico</h3>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Produção focada em métricas e resultados para crescimento orgânico sustentável.
+                </p>
+              </div>
+            </Card>
+          </div>
+
+          {/* CTA Section */}
+          <div className="mt-16 text-center animate-fade-in-up">
+            <p className="text-gray-400 mb-6 text-lg">
+              Quer crescer nas redes sociais com conteúdo estratégico?
+            </p>
+            <Button
+              onClick={() => scrollToSection("contact")}
+              className="bg-[hsl(var(--primary))] hover:bg-[hsl(var(--primary-hover))] text-white font-montserrat font-semibold px-8 py-6 text-lg transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,102,0,0.5)]"
+            >
+              <TrendingUp className="mr-2" />
+              Fale sobre sua estratégia
+            </Button>
           </div>
         </div>
       </section>
