@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors, Zap, X, TrendingUp, BarChart3, Target } from "lucide-react";
+import { Video, Instagram, MessageCircle, Sparkles, Camera, Film, Scissors, Zap, X, TrendingUp, BarChart3, Target, Quote } from "lucide-react";
 import vickkPhoto from "@/assets/vickk-photo.jpg";
 import video01 from '/Trabalho-Vick.mp4'
 import videoFinal from '/Video Final.mp4'
@@ -426,38 +426,89 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-24 px-6 bg-[#000000] text-white">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in">
+      <section id="testimonials" className="py-24 px-6 bg-gradient-to-b from-[#000000] via-[#0a0a0a] to-[#000000] text-white relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[hsl(var(--primary))] rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[hsl(var(--primary))] rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20 animate-fade-in">
             <h2 className="text-4xl md:text-6xl font-montserrat font-bold mb-4">
               O que dizem sobre o <span className="text-[hsl(var(--primary))]">trabalho</span>
             </h2>
+            <p className="text-gray-400 text-lg mt-4">Depoimentos reais de quem confiou no nosso trabalho</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          {/* Masonry Grid Layout */}
+          <div className="columns-1 md:columns-2 lg:columns-3 gap-6 lg:gap-8">
             {[
               {
-                text: "A Vickk capturou a essência do nosso evento de forma única. Cada frame transborda emoção e profissionalismo.",
-                author: "Cliente Satisfeito",
-                role: "Evento Corporativo"
+                text: "Com certeza vc marcou esse dia. Amei! Eu casaria de novo só pra ter vc registrando tudo. Ficou muito lindo!",
+                author: "Mari",
+                height: "auto"
               },
               {
-                text: "Trabalho excepcional! A sensibilidade artística combinada com técnica impecável resultou em um vídeo que superou todas as expectativas.",
-                author: "Cliente Satisfeito",
-                role: "Vídeo Promocional"
+                text: "Estou encantada com a qualidade dos vídeos, os cortes certos, as músicas perfeitas, sua entrega, disponibilidade, atenção, seu trabalho é impecável! Muito obrigada por ter tornado esse dia perfeito com seus registros.",
+                author: "Elaine",
+                height: "auto"
+              },
+              {
+                text: "Vicky, amei tudo! Vc arrasou muuuuuito!",
+                author: "Micheli",
+                height: "auto"
+              },
+              {
+                text: "Que Deus abençoe o seu trabalho, que vc possa continuar captando muitos momentos alegres iguais ao meu hoje! Que suas mãos sejam abençoadas! Seu trabalho é perfeito! Tão logo você estará pisando em lugares que nunca sonhou pois seu trabalho é grandioso! Perfeito!!",
+                author: "Nathalia",
+                height: "auto"
+              },
+              {
+                text: "Tá perfeito! Vi, que Deus te abençoe. Você completa a vida das pessoas com o seu trabalho.",
+                author: "Juliana",
+                height: "auto"
               }
             ].map((testimonial, index) => (
               <Card
                 key={index}
-                className="bg-[#0a0a0a] border-[hsl(var(--primary))] border-l-4 p-8 animate-fade-in-up hover:shadow-[0_0_30px_rgba(255,102,0,0.2)] transition-all duration-300"
-                style={{ animationDelay: `${index * 200}ms` }}
+                className="break-inside-avoid mb-6 lg:mb-8 bg-[#0a0a0a]/80 backdrop-blur-sm border border-[#1a1a1a] p-8 animate-fade-in-up hover:border-[hsl(var(--primary))]/50 hover:shadow-[0_0_40px_rgba(255,102,0,0.15)] transition-all duration-500 hover:-translate-y-2 group relative overflow-hidden"
+                style={{ animationDelay: `${index * 150}ms` }}
               >
-                <p className="text-lg text-gray-300 mb-6 italic leading-relaxed">
-                  "{testimonial.text}"
-                </p>
-                <div>
-                  <p className="font-montserrat font-semibold text-white">{testimonial.author}</p>
-                  <p className="text-[hsl(var(--primary))] text-sm">{testimonial.role}</p>
+                {/* Decorative Quote Icon */}
+                <div className="absolute top-6 right-6 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                  <Quote className="text-[hsl(var(--primary))]" size={64} strokeWidth={1} />
+                </div>
+
+                {/* Glow Effect on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(var(--primary))]/0 via-[hsl(var(--primary))]/0 to-[hsl(var(--primary))]/0 group-hover:from-[hsl(var(--primary))]/5 group-hover:via-[hsl(var(--primary))]/0 group-hover:to-[hsl(var(--primary))]/0 transition-all duration-500 rounded-lg" />
+
+                {/* Content */}
+                <div className="relative z-10">
+                  {/* Large Opening Quote */}
+                  <div className="mb-4">
+                    <Quote className="text-[hsl(var(--primary))]/60" size={32} strokeWidth={1.5} />
+                  </div>
+
+                  {/* Testimonial Text */}
+                  <p className="text-base md:text-lg text-gray-200 leading-relaxed mb-8 font-light italic">
+                    {testimonial.text}
+                  </p>
+
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-6 border-t border-[#1a1a1a] group-hover:border-[hsl(var(--primary))]/30 transition-colors duration-300">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[hsl(var(--primary))] to-[hsl(var(--primary))]/60 flex items-center justify-center">
+                      <span className="text-white font-montserrat font-bold text-sm">
+                        {testimonial.author.charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="font-montserrat font-bold text-white text-lg">
+                        {testimonial.author}
+                      </p>
+                      <p className="text-gray-400 text-sm">Cliente</p>
+                    </div>
+                  </div>
                 </div>
               </Card>
             ))}
